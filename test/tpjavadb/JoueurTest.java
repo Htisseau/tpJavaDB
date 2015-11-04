@@ -17,12 +17,14 @@ public class JoueurTest {
     
     public JoueurTest() {
     }
+    
+    private Joueur instance;
 
     @Before
     public void testConstructor() {
         
-        Joueur instance = new Joueur("Jeffrey", "mdp");
-        assertEquals("Jeffrey", instance.getLogin());
+        instance = new Joueur("Hooman", "mdp");
+        assertEquals("Hooman", instance.getLogin());
         assertEquals(1, instance.getId());
         assertEquals("mdp", instance.getPwd());
         

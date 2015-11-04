@@ -1,4 +1,4 @@
-package manips;
+package tpjavadb;
 
 import java.sql.*;
 
@@ -19,10 +19,10 @@ public class Database {
   public static final int FOREIGN_KEY_NOT_FOUND = 1452;
 
   protected static final String DRIVER_NAME = "com.mysql.jdbc.Driver";
-  protected static final String DB_NAME = "boutique";
+  protected static final String DB_NAME = "dilemme";
   protected static final String URL = "jdbc:mysql://localhost/" + DB_NAME;
-  protected static final String USER = "boutique";
-  protected static final String PASSWORD = "boutique";
+  protected static final String USER = "root";
+  protected static final String PASSWORD = "";
 
   public enum SortOrder {
 
