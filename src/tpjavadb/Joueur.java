@@ -19,6 +19,10 @@ public class Joueur {
     private int id;
     private String login;
     private String pwd;
+
+    Joueur(String jeffrey, String mdp) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     /*
       recupere l'id du joueur
