@@ -20,23 +20,38 @@ public class Joueur {
     private String login;
     private String pwd;
     
-    
+    /*
+      recupere l'id du joueur
+    */
     public int getId() {
         return id;
     }
     
+    /*
+      recupere le login du joueur
+    */
     public String getLogin() {
         return login;
     }
     
+    /*
+      recupere le pwd du joueur
+    */
     public String getPwd() {
         return pwd;
     }
     
+    /*
+      sert a redefinir le login du joueur
+    */
     public void setLogin(String log) {
         login = log;
     }
     
+    
+    /*
+      sert a redefinir le pwd du joueur
+    */
     public void setPwd(String pass) {
         pwd = pass;
     }
