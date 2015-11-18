@@ -7,7 +7,6 @@ package tpjavadb;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.junit.Before;
 
 /**
  *
@@ -17,18 +16,49 @@ public class JoueurTest {
     
     public JoueurTest() {
     }
-    
-    private Joueur instance;
 
-    @Before
-    public void testConstructor() {
-        
-        instance = new Joueur("Hooman", "mdp");
-        assertEquals("Hooman", instance.getLogin());
-        assertEquals(1, instance.getId());
-        assertEquals("mdp", instance.getPwd());
-        
+    @Test
+    public void testGetById() {
+        System.out.println("getById");
+        int i = 0;
+        Joueur instance = null;
+        String expResult = "";
+        String result = instance.getById(i);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
     }
-    
+
+    @Test
+    public void testGetByLoginPwd() {
+        System.out.println("getByLoginPwd");
+        String login = "";
+        String pwd = "";
+        Joueur instance = null;
+        int expResult = 0;
+        int result = instance.getByLoginPwd(login, pwd);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Joueur instance = null;
+        int expResult = 0;
+        int result = instance.hashCode();
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        Object obj = null;
+        Joueur instance = null;
+        boolean expResult = false;
+        boolean result = instance.equals(obj);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
     
 }

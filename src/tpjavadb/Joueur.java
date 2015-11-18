@@ -20,45 +20,24 @@ public class Joueur {
     private String login;
     private String pwd;
 
-    Joueur(String jeffrey, String mdp) {
+    Joueur(String Hooman, String mdp) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     /*
       recupere l'id du joueur
     */
-    public int getId() {
-        return id;
+    public String getById(int i) {
+        return login;
     }
     
     /*
       recupere le login du joueur
     */
-    public String getLogin() {
-        return login;
+    public int getByLoginPwd(String login, String pwd) {
+        return id;
     }
     
-    /*
-      recupere le pwd du joueur
-    */
-    public String getPwd() {
-        return pwd;
-    }
-    
-    /*
-      sert a redefinir le login du joueur
-    */
-    public void setLogin(String log) {
-        login = log;
-    }
-    
-    
-    /*
-      sert a redefinir le pwd du joueur
-    */
-    public void setPwd(String pass) {
-        pwd = pass;
-    }
 
     @Override
     public int hashCode() {
