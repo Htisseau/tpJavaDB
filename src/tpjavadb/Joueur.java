@@ -5,7 +5,16 @@
  */
 package tpjavadb;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.time.Clock;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 
 
@@ -19,23 +28,52 @@ public class Joueur {
     private int id;
     private String login;
     private String pwd;
+    private Connection connexion;
 
-    Joueur(String Hooman, String mdp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Joueur(int i, String hooman, String mdp) {
+        this.id = i;
+        this.login = hooman;
+        this.pwd = mdp;
+    }
+
+    Joueur() {
+        
     }
     
     /*
       recupere l'id du joueur
     */
-    public String getById(int i) {
-        return login;
+    public Joueur getById(int id) throws SQLException {
+        connexion = Database.getConnection();
+        String sql = "SELECT * FROM joueur WHERE id='"+id+"';";
+        
+        
+        Statement order = connexion.createStatement();
+        ResultSet rs = order.executeQuery(sql);
+        
+        
+        Joueur joueur = new Joueur();
+        rs.next();
+        joueur.setId(rs.getInt(1));
+        joueur.setLogin(rs.getString(2));
+        joueur.setPwd(rs.getString(3));
+        
+        return joueur;
     }
-    
+        
     /*
       recupere le login du joueur
     */
     public int getByLoginPwd(String login, String pwd) {
         return id;
+    }
+    
+    
+    /*
+      return le login du joueur
+    */
+    public String getLogin() {
+        return login;
     }
     
 
@@ -64,6 +102,18 @@ public class Joueur {
             return false;
         }
         return true;
+    }
+
+    private void setId(int id) {
+        this.id = id;
+    }
+
+    private void setLogin(String login) {
+        this.login = login;
+    }
+
+    private void setPwd(String pwd) {
+        this.pwd = pwd;
     }
     
     

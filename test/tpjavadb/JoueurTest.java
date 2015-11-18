@@ -5,6 +5,7 @@
  */
 package tpjavadb;
 
+import java.sql.SQLException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,17 +19,14 @@ public class JoueurTest {
     }
 
     @Test
-    public void testGetById() {
+    public void testGetById() throws SQLException {
         System.out.println("getById");
-        int i = 0;
-        Joueur instance = null;
-        String expResult = "";
-        String result = instance.getById(i);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
+        Joueur instance = new Joueur();
+        Joueur result = instance.getById(1);
+        assertEquals("Hugo", result.getLogin());
     }
 
-    @Test
+   /* @Test
     public void testGetByLoginPwd() {
         System.out.println("getByLoginPwd");
         String login = "";
@@ -60,5 +58,5 @@ public class JoueurTest {
         assertEquals(expResult, result);
         fail("The test case is a prototype.");
     }
-    
+    */
 }
