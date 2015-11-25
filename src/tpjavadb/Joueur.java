@@ -41,7 +41,7 @@ public class Joueur {
     }
     
     /*
-      recupere l'id du joueur
+      recupere l'id du joueur TODO:Securiser la req sql
     */
     public Joueur getById(int id) throws SQLException {
         connexion = Database.getConnection();
@@ -62,10 +62,20 @@ public class Joueur {
     }
         
     /*
-      recupere le login du joueur
+      recupere l'id du joueur TODO:Securiser la req sql
     */
-    public int getByLoginPwd(String login, String pwd) {
-        return id;
+    public int getIdByLoginPwd(String login, String pwd) throws SQLException {
+        connexion = Database.getConnection();
+        String sql = "SELECT id FROM joueur WHERE login='"+login+"' AND pdw='"+pwd+"';";
+        
+        Statement order = connexion.createStatement();
+        ResultSet rs = order.executeQuery(sql);
+        
+        Joueur joueur = new Joueur();
+        rs.next();
+        joueur.setId(rs.getInt(1));
+        
+        return joueur.getId();
     }
     
     
@@ -114,6 +124,10 @@ public class Joueur {
 
     private void setPwd(String pwd) {
         this.pwd = pwd;
+    }
+
+    private int getId() {
+        return id;
     }
     
     
